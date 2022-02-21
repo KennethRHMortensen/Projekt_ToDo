@@ -31,8 +31,7 @@ router.post('/login', async function(req, res, next) {
   
   let user = await userController.loginUser(req, res);
 
-  console.log("user = " + user);
-  res.render('index', { title: 'Express', user: user.userName });
+  res.render('index', { title: 'Express', user: user });
 });
 
 

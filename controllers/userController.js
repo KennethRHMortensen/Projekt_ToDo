@@ -31,31 +31,19 @@ module.exports = {
   loginUser: async function (req, res) {
     console.log("in loginUser");
     const db = await mongoUtil.mongoConnect();
-    // const inputUser = req.body.username;
-    const inputUser = "MortenRUD";
-    const inputPwd = "admin";
+    const inputUser = req.body.username;
+    const inputPwd = req.body.password;
 
     const user = await User.find({ userName: inputUser });
-    // console.log(user[0].password);
     if (user) {
-        console.log("found user");
+      console.log("found user");
       //TODO: Password validation
-      const crypted = await bcrypt.compare(
-        inputPwd,
-        user[0].password,
-        function (err, result) {
-          if (!result) {
-            console.log("ERROR");
-          } else {
-            db.close();
-            console.log("user from bcrypt = " + user);
-            return user;
-          }
-        }
-      );
+      const isValidated = await bcrypt.compare(inputPwd, user[0].password);
+
+      if (isValidated) {
+        return user[0];
+      }
     }
-
-
 
     // const user = await User.find({ userName: inputUser}, function (err, foundUser) {
     // console.log("in await db");
