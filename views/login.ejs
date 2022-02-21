@@ -9,8 +9,12 @@
   <body>
 
     <% include('./partials/header.ejs') %>
-    
-    <h1>Welcome <%= user %></h1>
+
+    <form action="/login" method="post">
+        <input type="text" name="username" required>
+        <input type="password" name="password" required>
+        <input type="submit">
+    </form>
 
 
     <% include('./partials/footer.ejs') %>
