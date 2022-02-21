@@ -3,8 +3,12 @@ var router = express.Router();
 const userController = require('../controllers/userController');
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+router.get('/', async function(req, res, next) {
+  
+  const users = await userController.getUser({});
+  console.log(users);
+  const user = await userController.loginUser({});
+  console.log(user);
 });
 
 router.get('/signup', async function(req, res, next) {
@@ -25,8 +29,9 @@ router.get('/login', function(req, res) {
 
 router.post('/login', async function(req, res, next) {
   
-  const user = await userController.loginUser(req, res);
+  let user = await userController.loginUser(req, res);
 
+  console.log("user = " + user);
   res.render('index', { title: 'Express', user: user.userName });
 });
 
