@@ -20,6 +20,8 @@ module.exports = {
         name: req.body.name,
         password: hash
       });
+
+
       // create method is a static method from mongoose that uses the Create method from http methods (C.R.U.D.)
       User.create(user, function (error, savedDocument) {
         console.log(savedDocument); //! remove when publishing
@@ -44,25 +46,5 @@ module.exports = {
         return user[0];
       }
     }
-
-    // const user = await User.find({ userName: inputUser}, function (err, foundUser) {
-    // console.log("in await db");
-    // console.log(user);
-
-    // if (foundUser) {
-    //     console.log("in found user");
-
-    //     // password comparison
-    //     if (foundUser.password === inputPwd) {
-    //         db.close();
-    //         return user;
-    //     }
-    //     else {
-    //         console.log('Wrong password: ' + err);
-    //     }
-    // } else {
-    //     console.log('User not registered: ' + err);
-    // }
-    // });
   },
 };
