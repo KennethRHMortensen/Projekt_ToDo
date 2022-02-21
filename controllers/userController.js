@@ -35,21 +35,27 @@ module.exports = {
         const db = await mongoUtil.mongoConnect();
         const inputUser = req.body.username;
         const inputPwd = bcrypt.hash(req.body.password, 10);
+
+        // const user = await User.find({ userName: inputUser}, function (err, foundUser) {
+        // console.log("in await db");
+        // console.log(user);
         
-        const user = await User.findOne({ userName: inputUser}, function (err, foundUser) {
-            if (foundUser) {
-                // password comparison
-                if (foundUser.password === inputPwd) {
-                    db.close();   
-                    return user;
-                }
-                else {
-                    console.log('Wrong password: ' + err);
-                }
-            } else {
-                console.log('User not registered: ' + err);
-            } 
-        });
+
+            // if (foundUser) {
+            //     console.log("in found user");
+
+            //     // password comparison
+            //     if (foundUser.password === inputPwd) {
+            //         db.close();   
+            //         return user;
+            //     }
+            //     else {
+            //         console.log('Wrong password: ' + err);
+            //     }
+            // } else {
+            //     console.log('User not registered: ' + err);
+            // } 
+        // });
             
         
     }
