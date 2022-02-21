@@ -1,0 +1,13 @@
+### Get ALL lists.
+GET http://localhost:4000/todos
+
+
+### Create a list.
+POST http://localhost:4000/todos
+Content-Type: application/json
+
+{
+    "isArchived": false,
+    "title": "Test List 2",
+    "description": "Test description 2..."
+}
