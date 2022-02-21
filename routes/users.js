@@ -11,11 +11,13 @@ router.get('/', async function(req, res, next) {
   console.log(user);
 });
 
+// render index page upon signup
 router.get('/signup', async function(req, res, next) {
 
   res.render('signup', { title: 'Sign Up' });
 });
 
+// register user in db
 router.post('/signup', async function(req, res, next) {
   
   const user = await userController.postUser(req, res);
@@ -23,10 +25,12 @@ router.post('/signup', async function(req, res, next) {
   res.render('login', { title: 'Signed up' });
 });
 
+// render dashboard page upon login
 router.get('/login', function(req, res) {
-  res.render('login',  { title: 'Express' });
+  res.render('dashboard',  { title: 'Express' });
 });
 
+// log in user using controller for validating input
 router.post('/login', async function(req, res, next) {
   
   let user = await userController.loginUser(req, res);

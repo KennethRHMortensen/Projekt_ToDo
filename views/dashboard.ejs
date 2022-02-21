@@ -10,14 +10,21 @@
 
     <% include('./partials/header.ejs') %>
 
-    <form action="/users/signup" method="post">
-        <input type="text" name="name" placeholder="Your Name (optional)">
-        <input type="text" name="username" placeholder="User Name" required>
-        <input type="password" name="password" required>
-        <input type="password" name="password_confirm" required>
-        
-        <input type="submit">
-    </form>
+    
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">Active</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled">Disabled</a>
+      </li>
+    </ul>
 
 
     <% include('./partials/footer.ejs') %>
