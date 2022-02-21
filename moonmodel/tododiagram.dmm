@@ -455,7 +455,7 @@
 		"def_validationAction": "na",
 		"def_collation": "",
 		"def_others": "",
-		"lastSaved": "Thu Feb 17 2022 13:05:11 GMT+0100 (Centraleuropæisk normaltid)"
+		"lastSaved": "17.2.2022"
 	},
 	"otherObjects": {},
 	"diagrams": {
@@ -473,8 +473,8 @@
 			"diagramItems": {
 				"918f71d6-cf26-473a-a845-1f57cbe0e584": {
 					"referencedItemId": "918f71d6-cf26-473a-a845-1f57cbe0e584",
-					"x": 154,
-					"y": 148,
+					"x": 796,
+					"y": 40,
 					"gHeight": 99,
 					"gWidth": 202,
 					"color": "#ffffff",
@@ -484,8 +484,8 @@
 				},
 				"37d54715-e94a-481c-be84-48d7de6e43c9": {
 					"referencedItemId": "37d54715-e94a-481c-be84-48d7de6e43c9",
-					"x": 525,
-					"y": 290,
+					"x": 50,
+					"y": 40,
 					"gHeight": 189,
 					"gWidth": 212,
 					"color": "#ffffff",
@@ -495,8 +495,8 @@
 				},
 				"da2beb47-c2cf-4916-a2e3-d8f6b0bb40b2": {
 					"referencedItemId": "da2beb47-c2cf-4916-a2e3-d8f6b0bb40b2",
-					"x": 152,
-					"y": 328,
+					"x": 423,
+					"y": 40,
 					"gHeight": 153,
 					"gWidth": 238,
 					"color": "#ffffff",
