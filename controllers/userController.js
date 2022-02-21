@@ -18,7 +18,7 @@ module.exports = {
         // create obejct in schema-format
         userName: req.body.username,
         name: req.body.name,
-        password: hash,
+        password: hash
       });
       // create method is a static method from mongoose that uses the Create method from http methods (C.R.U.D.)
       User.create(user, function (error, savedDocument) {
@@ -37,8 +37,8 @@ module.exports = {
     const user = await User.find({ userName: inputUser });
     if (user) {
       console.log("found user");
-      //TODO: Password validation
-      const isValidated = await bcrypt.compare(inputPwd, user[0].password);
+      
+      const isValidated = await bcrypt.compare(inputPwd, user[0].password); //Password validation
 
       if (isValidated) {
         return user[0];

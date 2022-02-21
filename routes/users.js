@@ -34,6 +34,20 @@ router.post('/login', async function(req, res, next) {
   res.render('index', { title: 'Express', user: user });
 });
 
+router.get('/admin', async function(req,res, next) {
+
+  const users = await userController.getUser({profile: 'pending'});
+
+  //TODO: Render a list with users, and possiblity to change profile from pending to other options.
+  res.render('adminUserPendingList', {title: 'User Administration', users: users });
+});
+
+router.post('/updateuser', async function(req,res, next) {
+
+
+
+});
+
 
 
 module.exports = router;
