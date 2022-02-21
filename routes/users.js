@@ -7,10 +7,16 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.post('/signup', function(req, res, next) {
-  
+router.get('/signup', async function(req, res, next) {
 
-  res.render('login', { title: 'Express' });
+  res.render('signup', { title: 'Sign Up' });
+});
+
+router.post('/signup', async function(req, res, next) {
+  
+  const user = await userController.postUser(req, res);
+
+  res.render('login', { title: 'Signed up' });
 });
 
 router.get('/login', function(req, res) {
@@ -21,7 +27,7 @@ router.post('/login', async function(req, res, next) {
   
   const user = await userController.loginUser(req, res);
 
-  res.render('index', { user: user.userName });
+  res.render('index', { title: 'Express', user: user.userName });
 });
 
 
