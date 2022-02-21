@@ -31,6 +31,7 @@ module.exports = {
         });
     },
     loginUser: async function (req, res) {
+        console.log("in loginUser");
         const db = await mongoUtil.mongoConnect();
         const inputUser = req.body.username;
         const inputPwd = bcrypt.hash(req.body.password, 10);

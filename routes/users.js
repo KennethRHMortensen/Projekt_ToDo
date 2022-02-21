@@ -14,7 +14,7 @@ router.post('/signup', function(req, res, next) {
 });
 
 router.get('/login', function(req, res) {
-  res.render('login');
+  res.render('login',  { title: 'Express' });
 });
 
 router.post('/login', async function(req, res, next) {
