@@ -60,6 +60,20 @@
 					"list": false,
 					"enum": "",
 					"validate": ""
+				},
+				{
+					"id": "0294bc50-9c6a-40f6-bd74-4e4a9d035966",
+					"name": "profile",
+					"datatype": "enum",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"list": false,
+					"enum": "admin, regular, pending, deactivated",
+					"validate": ""
 				}
 			],
 			"relations": [
@@ -455,7 +469,8 @@
 		"def_validationAction": "na",
 		"def_collation": "",
 		"def_others": "",
-		"lastSaved": "17.2.2022"
+		"lastSaved": "Thu Feb 17 2022 13:24:05 GMT+0100 (Centraleuropæisk normaltid)",
+		"writeFileParam": false
 	},
 	"otherObjects": {},
 	"diagrams": {
@@ -465,7 +480,7 @@
 			"id": "8f63f50e-dd84-4728-a249-1164846f3069",
 			"keysgraphics": true,
 			"linegraphics": "detailed",
-			"zoom": 1.4,
+			"zoom": 1.1,
 			"background": "transparent",
 			"lineColor": "transparent",
 			"isOpen": true,
@@ -473,9 +488,9 @@
 			"diagramItems": {
 				"918f71d6-cf26-473a-a845-1f57cbe0e584": {
 					"referencedItemId": "918f71d6-cf26-473a-a845-1f57cbe0e584",
-					"x": 796,
-					"y": 40,
-					"gHeight": 99,
+					"x": 786,
+					"y": 42,
+					"gHeight": 117,
 					"gWidth": 202,
 					"color": "#ffffff",
 					"background": "#03a9f4",
@@ -506,8 +521,8 @@
 				}
 			},
 			"scroll": {
-				"x": 0,
-				"y": 0
+				"left": 0,
+				"top": 0
 			}
 		}
 	},
