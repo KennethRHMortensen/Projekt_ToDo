@@ -1,4 +1,4 @@
-const mongoose = requre("mongoose");
+const mongoose = require("mongoose");
 
 //Instantiate new list with mongoose
 const ListSchema = new mongoose.Schema({
@@ -13,7 +13,7 @@ const ListSchema = new mongoose.Schema({
         required: true
     },
     dateEnd: {
-        type: Date, 
+        type: Date,
         required: false
     },
     title: {
@@ -24,11 +24,11 @@ const ListSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    user_userName: {
-        type: mongoose.Schema.Types.userName,
-        required: true,
-        ref: 'User'
-    }
+    // user_userName: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     required: true,
+    //     ref: 'User'
+    // } TODO: Find a way to join a list to a user, when sending post request.
 });
 
 module.exports = new mongoose.model('List', ListSchema);
