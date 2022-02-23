@@ -11,12 +11,19 @@ router.get('/', async (req, res) => {
 // Create a list.
 router.post('/', async (req, res) => {
     const list = await todoController.postList(req, res);
-    res.json(list);
+    let updateLists = await todoController.getList(req, res);
+    
+    res.render('dashboard', { 
+    title: 'Express', 
+    user: list,
+    lists: updateLists
+  });
+  console.log('her er jeg');
 });
 
-// Get List With Tasks.
-router.get('/task', async (req, res) => {
-    const list = await todoController.getListWithTask(req, res);
+// Print as json.
+router.post('/list/json', async (req, res) => {
+    const list = await todoController.postList(req, res);
     res.json(list);
 });
 

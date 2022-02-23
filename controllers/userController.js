@@ -43,6 +43,7 @@ module.exports = {
       const isValidated = await bcrypt.compare(inputPwd, user[0].password); //Password validation
 
       if (isValidated) {
+        db.close();
         return user[0];
       }
     }

@@ -19,19 +19,24 @@ module.exports = {
     postList: async function(req, res) {
         const user = await userController.getUser({userName: 'kenneth'}) //Find logged in user
         const db = await mongoUtil.mongoConnect();
+       
         let list = new List({
-            user: user[0],
             dateStart: new Date(),
-            isArchived: req.body.isArchived,
+            isArchived: false,
             dateEnd: req.body.dateEnd,
             title: req.body.title,
-            description: req.body.description
+            description: req.body.description,
+            user: user[0]
             //TODO: Find out how to join list to user.
         });
+        console.log(list);
+        
         List.create(list, function(error, savedDocument) {
             console.log(savedDocument); //TODO: Remove when publishing.
             if (error) console.log(error);
             db.close();
+            console.log('db open');
+            return user;
             
         });
     },
