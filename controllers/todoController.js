@@ -1,5 +1,7 @@
 const mongoUtil = require("../models/mongoUtil");
 const List = require('../models/List');
+const User = require("../models/User");
+const userController = require("./userController");
 
 module.exports = {
     // Get ALL lists.
@@ -11,8 +13,10 @@ module.exports = {
     },
     // Create a list.
     postList: async function(req, res) {
+        const user = await userController.getUser({userName: 'kenneth'}) //Find logged in user
         const db = await mongoUtil.mongoConnect();
         let list = new List({
+            user: user[0],
             dateStart: new Date(),
             isArchived: req.body.isArchived,
             dateEnd: req.body.dateEnd,
@@ -24,6 +28,7 @@ module.exports = {
             console.log(savedDocument); //TODO: Remove when publishing.
             if (error) console.log(error);
             db.close();
+            
         });
     },
     

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const userController = require('../controllers/userController');
+const todoController = require('../controllers/todoController');
 
 /* GET users listing. */
 router.get('/', async function(req, res, next) {
@@ -34,8 +35,14 @@ router.post('/signup', async function(req, res, next) {
 router.post('/login', async function(req, res, next) {
   
   let user = await userController.loginUser(req, res);
+  let lists = await todoController.getList(req, res);
+  console.log(lists);
 
-  res.render('dashboard', { title: 'Express', user: user });
+  res.render('dashboard', { 
+    title: 'Express', 
+    user: user,
+    lists: lists
+  });
 });
 
 router.get('/admin', async function(req,res, next) {

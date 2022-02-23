@@ -24,11 +24,10 @@ const ListSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    // user_userName: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     required: true,
-    //     ref: 'User'
-    // } TODO: Find a way to join a list to a user, when sending post request.
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    } 
 });
 
 module.exports = new mongoose.model('List', ListSchema);

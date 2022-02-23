@@ -20,7 +20,11 @@ const UserSchema = new mongoose.Schema({
         type: String,
         enum: ['admin', 'regular', 'pending', 'deactivated'],
         default: 'pending'
-    }
+    },
+    lists: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'List'
+    }]
 });
 
 module.exports = new mongoose.model('User', UserSchema);
