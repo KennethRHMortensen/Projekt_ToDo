@@ -1,4 +1,4 @@
-const mongoose = requre("mongoose");
+const mongoose = require("mongoose");
 
 //Instantiate new task with mongoose
 const TaskSchema = new mongoose.Schema({
@@ -27,21 +27,13 @@ const TaskSchema = new mongoose.Schema({
         type: Date, 
         required: false
     },
-    isArchieved: {
+    isArchived: {
         type: Boolean, 
-        required: true
+        
     },
-    /**
-     * department: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Department',
-        required: true
-    } */
-    // Key to join task to list?????
     list: {
         type: mongoose.Schema.Types.ObjectId, 
-        ref: 'List',
-        required: true
+        ref: 'List'
     }
 });
 

@@ -1,5 +1,4 @@
 var express = require('express');
-const { json } = require('express/lib/response');
 var router = express.Router();
 const todoController = require('../controllers/todoController');
 
@@ -13,6 +12,12 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     const list = await todoController.postList(req, res);
     res.json(list);
+});
+
+// Create a task.
+router.post('/task', async (req, res) => {
+    const task = await todoController.postTask(req, res);
+    res.json(task);
 });
 
 module.exports = router;
