@@ -5,17 +5,15 @@ const userController = require("./userController");
 const Task = require ('../models/Task');
 
 module.exports = {
+    
     // Get ALL lists.
     getList: async function(query, sort) {
         const db = await mongoUtil.mongoConnect();
-        const lists = await List.find(query, null, sort)
-        .populate('task');
+        const lists = await List.find(query, null, sort);
+        //.populate('task');
         db.close();
         return lists;
     },
-
-
-
 
     // Create a list.
     postList: async function(req, res) {
@@ -27,7 +25,7 @@ module.exports = {
             isArchived: req.body.isArchived,
             dateEnd: req.body.dateEnd,
             title: req.body.title,
-            description: req.body.description,
+            description: req.body.description
             //TODO: Find out how to join list to user.
         });
         List.create(list, function(error, savedDocument) {
@@ -37,8 +35,10 @@ module.exports = {
             
         });
     },
+
+    // Create task
     postTask: async function(req, res) {
-        const list = await this.getList({_id: "6216019c318fc87dd020f0a5"}) //Find list
+        const list = await this.getList({_id: "62163b98a08ab3c82fd32518"}) //Find list
         const db = await mongoUtil.mongoConnect();
         let task = new Task({
             title: req.body.title,
@@ -49,11 +49,20 @@ module.exports = {
             isArchived: false,
             list: list[0]
         });
-        Task.create(task, function(error, savedDocument) {
-            console.log(savedDocument); //TODO: Remove when publishing.
-            if (error) console.log(error);
+
+        Task.create(task, function(error, task) {
+            console.log(task);
+            if (task) {
+                List.update(
+                    { _id: list._id }, 
+                    { $push: { tasks: task } },
+                    console.log('done'),
+                    console.log(list)
+                );
+            } else {
+                console.log(error);
+            }
             db.close();
-            
         });
     },
     

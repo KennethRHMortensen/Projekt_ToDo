@@ -8,8 +8,8 @@ Content-Type: application/json
 
 {
     "isArchived": true,
-    "title": "Tesq34t",
-    "description": "Test description.."
+    "title": "Second list",
+    "description": "Test description......"
 }
 
 
@@ -18,6 +18,8 @@ POST http://localhost:4000/todos/task
 Content-Type: application/json
 
 {
-    "title": "testTask1",
-    "description": "testtesksjksaskldfghdskjfghsdlgdsf"
+    "title": "task 3",
+    "description": "test description............"
 }
+
+

@@ -14,6 +14,12 @@ router.post('/', async (req, res) => {
     res.json(list);
 });
 
+// Get List With Tasks.
+router.get('/task', async (req, res) => {
+    const list = await todoController.getListWithTask(req, res);
+    res.json(list);
+});
+
 // Create a task.
 router.post('/task', async (req, res) => {
     const task = await todoController.postTask(req, res);
